@@ -1,28 +1,24 @@
 const removeFromArray = function(...param) {
-    // param[0] equals to the array
-    let array = param[0];
-    let numberOfParameters = param.length;
-    // array for the parameters
-    let values = [];
-    // assign the values of the parameters to an array
-    // this is correct
-    for (let i = 1; i < numberOfParameters; i++){
-        values[i - 1] = param[i]; 
+    // the first parameter of the function is the array
+    const myArray = param[0];
+    // Check how many values do we have to remove
+    const numOfParameters = param.length;
+    // declaration of remove arguments and their index in the array
+    const remove = [];
+    const index = [];
+    // declaring the values that we need to remove into the remove array
+    for (let i = 1; i < numOfParameters; i++){
+        // the minus is because the loop is set from 1, and we want to set the values of the array
+        remove[i - 1] = param[i];
+        index[i - 1] = myArray.indexOf(remove[i-1]);
     }
-    // Loop thru the values
-    for(let i = 0; i < values.length; i++){
-        // Loop thru the array
-        for (let j = 0; j < array.length; j++){
-            if(values[i] === array[j]){
-                array.splice(j, 1);
-            }
-        }
+    
+    for(let i = 0; i < index.length; i++){
+        myArray.splice(index[i], 1);
     }
-// npm test removeFromArray.spec.js
-    return array;
-
-
-
+    
+    return myArray;
+    // npm test removeFromArray.spec.js
 };
 
 // Do not edit below this line
