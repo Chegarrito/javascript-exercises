@@ -1,20 +1,22 @@
 const removeFromArray = function(...param) {
-    // the first parameter of the function is the array
+    // GET array
     const myArray = param[0];
-    // Check how many values do we have to remove
+    // GET numbers to remove
     const numOfParameters = param.length;
-    // declaration of remove arguments and their index in the array
     const remove = [];
-    const index = [];
-    // declaring the values that we need to remove into the remove array
-    for (let i = 1; i < numOfParameters; i++){
-        // the minus is because the loop is set from 1, and we want to set the values of the array
+    for(let i = 1; i < numOfParameters; i++){
         remove[i - 1] = param[i];
-        index[i - 1] = myArray.indexOf(remove[i-1]);
     }
-    
-    for(let i = 0; i < index.length; i++){
-        myArray.splice(index[i], 1);
+    let index;
+    // FOR the elements in remove
+    for(let i = 0; i < remove.length; i++){
+        // WHILE numbers still are in the array
+        while(myArray.includes(remove[i]) === true){
+            // DETERMINE index
+            index = myArray.indexOf(remove[i]); 
+            // REMOVE index
+            myArray.splice(index, 1);
+        }
     }
     
     return myArray;
@@ -23,4 +25,3 @@ const removeFromArray = function(...param) {
 
 // Do not edit below this line
 module.exports = removeFromArray;
-
