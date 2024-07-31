@@ -27,13 +27,29 @@ const multiply = function(arr) {
   return multiply;
 };
 
-const power = function() {
-	
+const power = function(num, power) {
+  return Math.pow(num,power);
 };
 
-const factorial = function() {
-	
-};
+const factorial = function(num) {
+  // SET initial value to 2
+  let ans = 2;
+  if(num === 0){
+    return 1;
+  }
+  else if(num === 1 || num === 2){
+    return num;
+  }
+  else {
+    // REPEAT until we get to the num
+  // SET counter to 3
+    for(let i = 3; i <= num; i++){
+      ans = ans * i;
+    } 
+    return ans; 
+  }
+  }
+
 // npm test calculator.spec.js
 // Do not edit below this line
 module.exports = {
